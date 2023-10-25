@@ -2,24 +2,25 @@ import 'package:flutter/material.dart';
 
 //ignore:camel_case_types
 class topHeadWidget extends StatelessWidget {
-  const topHeadWidget({super.key});
+  final String title;
+  const topHeadWidget({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          "Choose & Discover",
-          style: TextStyle(
+          title,
+          style: const TextStyle(
               color: Color.fromARGB(255, 37, 33, 243),
               fontSize: 30,
               fontWeight: FontWeight.w800),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
-        Text(
+        const Text(
           "Uganda, located in East Africe , is a diverse"
           " and cultuarally rich country often refered go as "
           "\"Pearl of Africa\". It is known for its stunning natural beauty, including the "
@@ -59,8 +60,11 @@ class unitCatWidget extends StatelessWidget {
               constraints: BoxConstraints.expand(
                 width: dimension.maxWidth*0.4
               ),
-              decoration: const BoxDecoration(
-                color: Colors.grey
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(imgUrl))
               ),
             ),
             const SizedBox(width: 15,),

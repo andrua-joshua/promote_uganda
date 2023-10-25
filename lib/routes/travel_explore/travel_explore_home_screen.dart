@@ -26,7 +26,9 @@ class travelExploreHomeScreen extends StatelessWidget {
               SizedBox(
                 height: 100,
               ),
-              Center(child: topHeadWidget()),
+              Center(child: topHeadWidget(
+                title: "Choose & Discover",
+              )),
               SizedBox(
                 height: 40,
               ),
@@ -34,7 +36,7 @@ class travelExploreHomeScreen extends StatelessWidget {
                   title: "MOUNTAINS", 
                   briefinfo: "Uganda being a country with a diverse economy , "
                   "its made of numerous mountains.", 
-                  imgUrl: "imgUrl"),
+                  imgUrl: "assets/images/mountUg.jpg"),
               SizedBox(
                 height: 10,
               ),
@@ -42,7 +44,7 @@ class travelExploreHomeScreen extends StatelessWidget {
                   title: "LANDSCAPE", 
                   briefinfo: "Landscape in uganda is one of the attractive features in uganda"
                   " with more than five kinds of landscap.", 
-                  imgUrl: "imgUrl"),
+                  imgUrl: "assets/images/landscape.jpg"),
               SizedBox(
                 height: 10,
               ),
@@ -50,7 +52,7 @@ class travelExploreHomeScreen extends StatelessWidget {
                   title: "CITY", 
                   briefinfo: "Despite uganda being an underseveloped country, its still though made "
                   "up some key cities that contribute alot to its development.", 
-                  imgUrl: "imgUrl"),
+                  imgUrl: "assets/images/city.jpg"),
               SizedBox(
                 height: 10,
               ),
@@ -58,13 +60,13 @@ class travelExploreHomeScreen extends StatelessWidget {
                   title: "LAKES AND RIVERS", 
                   briefinfo: "Uganda is full of more than just landscapes with some being "
                   "being known world wide through out the all continent and all over.", 
-                  imgUrl: "imgUrl"),
+                  imgUrl: "assets/images/rivers.jpg"),
               SizedBox(height: 10,),
                 unitCatWidget(
                   title: "GAME PARKS", 
                   briefinfo: "Game Parks are the key point where most of the tourists in uganda "
                   "normally reach to first.", 
-                  imgUrl: "imgUrl")
+                  imgUrl: "assets/images/gameparks.jpg")
             ],
           ),
         ),

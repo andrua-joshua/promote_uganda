@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:promote_uganda/routes/shopping/shopping_start_screen/shopping_start_screen.dart';
+import 'package:promote_uganda/routes/travel_explore/travel_and-explore_cat_screen/travel_and_explore_cat.dart';
+import 'package:promote_uganda/routes/travel_explore/travel_explore_details_screen/travel_explore_details_screen.dart';
 import 'package:promote_uganda/routes/travel_explore/travel_explore_home_screen.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const travelExploreHomeScreen(),
+      home: const travelExploreDetailsScreen(),
     );
   }
 }
