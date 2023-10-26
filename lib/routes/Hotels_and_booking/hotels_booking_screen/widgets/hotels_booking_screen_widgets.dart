@@ -215,14 +215,15 @@ class bookingBtnWidget extends StatelessWidget {
     return TextButton(
         onPressed: () {},
         child: Container(
+          constraints: const BoxConstraints.expand(height: 40),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10), color: Colors.black),
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          child: const Text(
+          child: const Center(child:Text(
             "Book Room",
             style: TextStyle(
                 color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
-          ),
+          )),
         ));
   }
 }
@@ -247,7 +248,7 @@ class servicesWidget extends StatelessWidget {
           Card(
             elevation: 3,
             child: Padding(
-              padding: EdgeInsets.all(3),
+              padding: EdgeInsets.all(5),
               child: Row(
                 children: [Icon(Icons.wifi), Text("Wifi")],
               ),
@@ -256,7 +257,7 @@ class servicesWidget extends StatelessWidget {
           Card(
             elevation: 3,
             child: Padding(
-              padding: EdgeInsets.all(3),
+              padding: EdgeInsets.all(5),
               child: Row(
                 children: [Icon(Icons.lunch_dining), Text(" free Launch")],
               ),
@@ -265,7 +266,7 @@ class servicesWidget extends StatelessWidget {
           Card(
             elevation: 3,
             child: Padding(
-              padding: EdgeInsets.all(3),
+              padding: EdgeInsets.all(5),
               child: Row(
                 children: [
                   Icon(Icons.breakfast_dining_outlined),
