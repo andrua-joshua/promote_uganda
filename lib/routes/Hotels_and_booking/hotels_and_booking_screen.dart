@@ -11,9 +11,7 @@ class hotelsHomeScreen extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: (){}, 
-          icon: const Icon(Icons.arrow_back)),
+      
         title: const Text(
           "Hotels",
           style: TextStyle(
@@ -36,8 +34,8 @@ class hotelsHomeScreen extends StatelessWidget{
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 10),
                   child: unitWidget(
-                    hotelName: "hotelName", 
-                    hotelLocation: "hotelLocation", 
+                    hotelName: "Jokas Hotel", 
+                    hotelLocation: "Namboole", 
                     price: "352",
                     imgUrl: "assets/images/gameparks.jpg"),),
 
@@ -46,6 +44,22 @@ class hotelsHomeScreen extends StatelessWidget{
                   child: unitWidget(
                     hotelName: "Delata Hotel", 
                     hotelLocation: "Bweyogerere", 
+                    price: "453",
+                    imgUrl: "assets/images/gameparks.jpg"),),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: unitWidget(
+                    hotelName: "Mamerito Hotel", 
+                    hotelLocation: "Bweyogerere", 
+                    price: "453",
+                    imgUrl: "assets/images/gameparks.jpg"),),
+
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: unitWidget(
+                    hotelName: "Hotel Afrikana", 
+                    hotelLocation: "Kampala", 
                     price: "453",
                     imgUrl: "assets/images/gameparks.jpg"),)
               ],

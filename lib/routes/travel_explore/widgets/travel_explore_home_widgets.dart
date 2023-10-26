@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/routes.dart';
 
 //ignore:camel_case_types
 class topHeadWidget extends StatelessWidget {
@@ -47,7 +48,9 @@ class unitCatWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: ()=>Navigator.pushNamed(context, RouteGenerator.exploreCatscreen, arguments:"Mountain"),
+      child:Container(
       constraints: const BoxConstraints.expand(height: 160),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -89,6 +92,6 @@ class unitCatWidget extends StatelessWidget {
           ],
         );
       }),
-    );
+    ));
   }
 }

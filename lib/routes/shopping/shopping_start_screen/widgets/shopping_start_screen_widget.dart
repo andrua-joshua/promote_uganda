@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/routes.dart';
 
 ///for the top navigations throuh the items
 //ignore:camel_case_types
@@ -74,7 +75,9 @@ class unitItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return GestureDetector(
+      onTap: ()=> Navigator.pushNamed(context, RouteGenerator.shopItemviewscreen),
+      child:SizedBox(
       height: 200,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -146,6 +149,6 @@ class unitItemWidget extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }
