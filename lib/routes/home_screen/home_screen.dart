@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:promote_uganda/routes/Hotels_and_booking/hotels_and_booking_screen.dart';
+import 'package:promote_uganda/routes/home_screen/home_tab/home_tab.dart';
 import 'package:promote_uganda/routes/shopping/shopping_start_screen/shopping_start_screen.dart';
 import 'package:promote_uganda/routes/travel_explore/travel_explore_home_screen.dart';
 import 'package:promote_uganda/state_managers/home_state_manager.dart';
@@ -19,7 +20,7 @@ class homeScreen extends StatelessWidget {
             child: Consumer<homeTabsNotifier>(
               builder: (context, value, child) {
                 if(value.currentIndex ==0){
-                  return const shoppingHomeScreen();
+                  return const homeTab();
                 }else if(value.currentIndex ==1){
                   return const travelExploreHomeScreen();
                 }else{
