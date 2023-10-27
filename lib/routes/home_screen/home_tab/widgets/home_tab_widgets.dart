@@ -95,3 +95,55 @@ class scrollableNavWidget extends StatelessWidget{
     );
   }
 }
+
+
+
+
+
+
+//ignore:camel_case_types
+class shortStoriesWidget extends StatelessWidget{
+  const shortStoriesWidget({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Container();
+  }
+}
+
+
+
+//ignore:camel_case_types
+class shortStoryUnitWidget extends StatelessWidget{
+  final String imgUrl;
+  final String storyCat;
+  final String title;
+  const shortStoryUnitWidget({
+    required this.imgUrl,
+    required this.storyCat,
+    required this.title,
+    super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(imgUrl))
+      ),
+
+      padding: const EdgeInsets.all(10),
+
+      child: Column(
+        children: [
+          SizedBox(
+            child:Container() ,
+          ),
+
+        ],
+      ),
+    );
+  }
+}
