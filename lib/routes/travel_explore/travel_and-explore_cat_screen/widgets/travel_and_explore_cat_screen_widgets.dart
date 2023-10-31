@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/routes.dart';
 import 'package:promote_uganda/routes/travel_explore/widgets/travel_explore_home_widgets.dart';
 
 
@@ -47,7 +48,9 @@ class catUnitWidget extends StatelessWidget{
 
     @override
     Widget build(BuildContext context){
-      return Container(
+      return GestureDetector(
+        onTap: ()=>Navigator.pushNamed(context, RouteGenerator.exploreCatdetailsscreen),
+        child:Container(
         constraints:  const BoxConstraints.expand(height: 200),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -72,6 +75,6 @@ class catUnitWidget extends StatelessWidget{
             const SizedBox(height: 10,)
           ],
         ),
-      );
+      ));
     }
 }
