@@ -28,9 +28,10 @@ class shoppingHomeScreenV2 extends StatelessWidget {
           delegate: SliverChildListDelegate(
             const [
               SizedBox(height: 10,),
-              //topNavWidget(),
-              SizedBox(height: 15,),
-              itemsWidget()
+              SizedBox(
+                height: 80,
+                width: 300,
+                child:topNavWidget()),
 
           ]))
       ],

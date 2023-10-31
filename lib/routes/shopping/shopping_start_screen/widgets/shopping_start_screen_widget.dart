@@ -83,8 +83,8 @@ class unitItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            constraints: const BoxConstraints.expand(height: 139),
-            margin: const EdgeInsets.symmetric(horizontal: 10),
+            constraints: const BoxConstraints.expand(height: 127),
+            margin: const EdgeInsets.symmetric(horizontal: 15),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: const Color.fromARGB(255, 214, 213, 213),
@@ -92,7 +92,7 @@ class unitItemWidget extends StatelessWidget {
                     fit: BoxFit.contain, image: AssetImage(imgUrl))),
           ),
           const SizedBox(
-            height: 8,
+            height: 0,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10),
@@ -104,7 +104,7 @@ class unitItemWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 5,
+            height: 1,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10),
@@ -127,7 +127,7 @@ class unitItemWidget extends StatelessWidget {
                         color: Colors.green),
                   ),
                   const SizedBox(
-                    width: 10,
+                    width: 5,
                   ),
                   TextButton(
                       onPressed: () {},
