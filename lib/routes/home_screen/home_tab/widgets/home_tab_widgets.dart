@@ -22,7 +22,7 @@ class scrollableNavWidget extends StatelessWidget {
                     padding: const EdgeInsets.all(4),
                     child: const Row(
                       children: [
-                        Icon(Icons.add_circle),
+                        Icon(Icons.add_circle, color: Colors.red,),
                         SizedBox(
                           width: 5,
                         ),
@@ -45,7 +45,7 @@ class scrollableNavWidget extends StatelessWidget {
                     padding: const EdgeInsets.all(4),
                     child: const Row(
                       children: [
-                        Icon(Icons.shop),
+                        Icon(Icons.shop, color: Colors.red,),
                         SizedBox(
                           width: 5,
                         ),
@@ -67,7 +67,7 @@ class scrollableNavWidget extends StatelessWidget {
                     padding: const EdgeInsets.all(4),
                     child: const Row(
                       children: [
-                        Icon(Icons.tv),
+                        Icon(Icons.tv, color: Colors.red,),
                         SizedBox(
                           width: 5,
                         ),

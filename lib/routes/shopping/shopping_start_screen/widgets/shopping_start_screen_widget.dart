@@ -91,9 +91,6 @@ class unitItemWidget extends StatelessWidget {
                 image: DecorationImage(
                     fit: BoxFit.contain, image: AssetImage(imgUrl))),
           ),
-          const SizedBox(
-            height: 0,
-          ),
           Padding(
             padding: const EdgeInsets.only(left: 10),
             child: Text(
@@ -102,9 +99,6 @@ class unitItemWidget extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontWeight: FontWeight.bold),
             ),
-          ),
-          const SizedBox(
-            height: 1,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 10),
@@ -131,7 +125,9 @@ class unitItemWidget extends StatelessWidget {
                   ),
                   TextButton(
                       onPressed: () {},
-                      child: Container(
+                      child: Center (
+                        child:Container(
+                        height: 25,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.orange),
@@ -142,7 +138,7 @@ class unitItemWidget extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold),
                         ),
-                      ))
+                      )))
                 ],
               ),
             ),

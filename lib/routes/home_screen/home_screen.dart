@@ -37,6 +37,8 @@ class homeScreen extends StatelessWidget {
                 onTap: (index) {
                   value.setIndex(index);
                 },
+                selectedItemColor: Colors.red,
+                unselectedItemColor: Colors.black,
                 items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
