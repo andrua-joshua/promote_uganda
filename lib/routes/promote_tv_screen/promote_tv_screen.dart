@@ -51,8 +51,20 @@ class promoteTvScreen extends StatelessWidget{
                             "You can now order using Jumia food "
                             "from your favourite restaurants", 
                 imgUrl: "assets/images/city.jpg", 
-                rating: "4.4")
+                rating: "4.4"),
+
+
+                SizedBox(height: 20,),
+                videoWidget(videoUrl: "https://youtu.be/bPv5pb7AcYs?si=ImaH58T9jC3MskK_"),
+
+                SizedBox(height: 10,),
+                videoWidget(videoUrl: "https://youtu.be/-rfEYd4NGQg?si=2CRGphiEtaqW-p6K"),
+
+                SizedBox(height: 10,),
+                videoWidget(videoUrl: "https://youtu.be/yUTNTL_Qku0?si=WDlRfl4cAJxeBYUB"),
             ],
+
+            
           ),
         )),
     );

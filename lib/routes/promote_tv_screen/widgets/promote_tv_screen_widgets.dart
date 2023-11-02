@@ -1,3 +1,4 @@
+import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
 
 
@@ -119,6 +120,7 @@ class adsWidget extends StatelessWidget{
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child:Row(
+              mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const Text("Ads"),
               const Expanded(child: SizedBox()),
@@ -136,6 +138,75 @@ class adsWidget extends StatelessWidget{
 
 
 
-
-
 ///----for the holders
+
+//ignore:camel_case_types
+class holdersWidget extends StatelessWidget{
+  const holdersWidget({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Container(
+
+    );
+  }
+}
+
+
+//ignore:camel_case_types
+class videoWidget extends StatefulWidget{
+  final String videoUrl;
+  const videoWidget({super.key, required this.videoUrl});
+
+  @override
+  _videoWidgetState createState()=> _videoWidgetState();
+
+}
+
+//ignore:camel_case_types
+class _videoWidgetState extends State<videoWidget>{
+  late VideoPlayerController videoPlayerController;
+  late CustomVideoPlayerController customVideoPlayerController;
+
+
+  @override
+  void initState(){
+    super.initState();
+    
+    videoPlayerController = 
+      VideoPlayerController.networkUrl(
+        Uri.parse(widget.videoUrl));
+
+    customVideoPlayerController = 
+      CustomVideoPlayerController(
+        context: context, 
+        videoPlayerController: videoPlayerController);
+
+  }
+
+  @override
+  void dispose(){
+    customVideoPlayerController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context){
+    return FutureBuilder(
+      future: videoPlayerController.initialize(), 
+      builder: (context, snapshot){
+        if(snapshot.hasData){
+          return CustomVideoPlayer(
+      customVideoPlayerController: customVideoPlayerController);
+        }
+       if(snapshot.hasError){
+        return Center(child: Text("error: "+snapshot.error.toString()),);
+       }
+
+       return const Center(child: CircularProgressIndicator(),);
+      },);
+  }
+
+
+  
+}
