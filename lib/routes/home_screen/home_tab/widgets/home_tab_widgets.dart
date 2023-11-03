@@ -57,7 +57,7 @@ class scrollableNavWidget extends StatelessWidget {
                     ),
                   ))),
           TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, RouteGenerator.promotetvscreen),
               child: Card(
                   elevation: 5,
                   child: Container(
