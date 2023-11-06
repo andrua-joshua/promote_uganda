@@ -55,13 +55,13 @@ class promoteTvScreen extends StatelessWidget{
 
 
                 SizedBox(height: 20,),
-                videoWidget(videoUrl: "https://youtu.be/bPv5pb7AcYs?si=ImaH58T9jC3MskK_"),
+                videoWidget(videoUrl: "https://cognospheredynamics.com/COGNOSPHERE%20DYNAMICS_v1.mp4"),
 
                 SizedBox(height: 10,),
-                videoWidget(videoUrl: "https://youtu.be/-rfEYd4NGQg?si=2CRGphiEtaqW-p6K"),
+                videoWidget(videoUrl: "https://cognospheredynamics.com/COGNOSPHERE%20DYNAMICS_v1.mp4"),
 
                 SizedBox(height: 10,),
-                videoWidget(videoUrl: "https://youtu.be/yUTNTL_Qku0?si=WDlRfl4cAJxeBYUB"),
+                videoWidget(videoUrl: "https://cognospheredynamics.com/COGNOSPHERE%20DYNAMICS_v1.mp4"),
             ],
 
             
