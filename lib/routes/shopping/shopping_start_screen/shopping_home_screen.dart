@@ -10,6 +10,7 @@ class shoppingHomeScreenV2 extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
+          backgroundColor: Colors.red,
           title: const Text(
             "Shopping",
             style: TextStyle(fontWeight: FontWeight.bold),

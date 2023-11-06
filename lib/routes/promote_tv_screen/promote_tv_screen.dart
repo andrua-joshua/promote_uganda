@@ -10,17 +10,18 @@ class promoteTvScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: const Text(
           "Promote Tv",
           style: TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.black, fontSize: 18),
+              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18),
         ),
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back)),
+            icon: const Icon(Icons.arrow_back, color: Colors.white,)),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications, color: Colors.white,)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search, color: Colors.white,)),
         ],
       ),
       body: const SafeArea(
@@ -28,7 +29,7 @@ class promoteTvScreen extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: promoteTvChipsWidget(),
             ),
             SizedBox(
@@ -39,7 +40,7 @@ class promoteTvScreen extends StatelessWidget {
                     "away | Delivery and more.\n"
                     "You can now order using Jumia food "
                     "from your favourite restaurants",
-                imgUrl: "assets/images/city.jpg",
+                imgUrl: "assets/images/ads_v2.png",
                 rating: "4.4"),
             SizedBox(
               height: 25,

@@ -58,7 +58,7 @@ class logoutBtnWidget extends StatelessWidget{
         constraints: const BoxConstraints.expand(height: 40),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.blue
+          color: Colors.red
         ),
         padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
 

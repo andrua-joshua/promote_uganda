@@ -86,13 +86,23 @@ class homeTab extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
+          showAllWidget(title: "New"),
+          shortStoriesWidget(storyTitle: ""),
+          SizedBox(
+            height: 15,
+          ),
           showAllWidget(title: "Trending"),
           shortStoriesWidget(storyTitle: ""),
           SizedBox(
             height: 15,
           ),
-          showAllWidget(title: "Politics"),
-          shortStoriesWidget(storyTitle: "")
+          showAllWidget(title: "Explore"),
+          shortStoriesWidget(storyTitle: ""),
+          SizedBox(
+            height: 15,
+          ),
+          showAllWidget(title: "Invest"),
+          shortStoriesWidget(storyTitle: ""),
         ]))
       ],
     );

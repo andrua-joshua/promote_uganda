@@ -211,7 +211,7 @@ class showAllWidget extends StatelessWidget {
               title,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
             ),
-            TextButton(onPressed: () {}, child: const Text("View all"))
+            TextButton(onPressed: () => Navigator.pushNamed(context, RouteGenerator.promotetvscreen), child: const Text("View all"))
           ],
         ));
   }

@@ -76,7 +76,7 @@ class _loginFormWidgetState extends State<loginFormWidget> {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.blueAccent
+                  color: Colors.red
                 ),
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: const Center(child:Text(
@@ -88,7 +88,7 @@ class _loginFormWidgetState extends State<loginFormWidget> {
                   ),
                   )),
               )),
-              havaAnAccountOptionWidget()
+              const dontHavaAnAccountOptionWidget()
           ],
         ));
   }
@@ -108,7 +108,7 @@ class loginTopWidget extends StatelessWidget {
         Text(
           "Welcome Back",
           style: TextStyle(
-              color: Colors.blueAccent,
+              color: Colors.red,
               fontSize: 30,
               fontWeight: FontWeight.bold),
         ),
@@ -144,8 +144,8 @@ class forgotOptionsWidget extends StatelessWidget{
 
 
 //ignore:camel_case_types
-class havaAnAccountOptionWidget extends StatelessWidget{
-  const havaAnAccountOptionWidget({super.key});
+class dontHavaAnAccountOptionWidget extends StatelessWidget{
+  const dontHavaAnAccountOptionWidget({super.key});
 
 
   @override
@@ -156,7 +156,7 @@ class havaAnAccountOptionWidget extends StatelessWidget{
         const Text(
           "I don't have an account."),
         TextButton(
-          onPressed: (){}, 
+          onPressed: ()=> Navigator.pushNamed(context, RouteGenerator.signupscreen), 
           child: Text("SignUp"))
       ],
     );

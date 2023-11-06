@@ -11,12 +11,14 @@ class travelExploreDetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 228, 228, 228),
       appBar: AppBar(
+        backgroundColor: Colors.red,
         centerTitle: true,
         title: const Text(
           "Details",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 17
+            fontSize: 17,
+            color: Colors.white
           ),),
       ),
       body: const SafeArea(

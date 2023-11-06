@@ -10,9 +10,11 @@ class travelExploreHomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 228, 228, 228),
       appBar: AppBar(
+        backgroundColor: Colors.red,
+        automaticallyImplyLeading: false,
         title: const Text(
           "Travel & Explore",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),

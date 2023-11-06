@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/routes.dart';
 import 'package:promote_uganda/routes/profile_screen/widgets/profile_screen_widgets.dart';
 
 //ignore:camel_case_types
@@ -9,24 +10,25 @@ class profileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(
               Icons.arrow_back,
-              color: Colors.black,
+              color: Colors.white,
             )),
         title: const Text(
           "Profile",
           style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
         ),
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: ()=> Navigator.pushNamed(context, RouteGenerator.editprofilescreen) ,
               icon: const Icon(
                 Icons.edit_note,
-                color: Colors.black,
+                color: Colors.white,
               ))
         ],
       ),
@@ -36,6 +38,7 @@ class profileScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(),
           child: Column(
             children: [
+              SizedBox(height: 20,),
               Center(child:topWithImageWidget(
                 profileImageUrl: "assets/images/city.jpg", 
                 username: "John Doe", 
