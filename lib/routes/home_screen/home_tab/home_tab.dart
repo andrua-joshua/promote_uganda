@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/routes.dart';
 import 'package:promote_uganda/routes/home_screen/home_tab/widgets/home_tab_widgets.dart';
 
 //ignore:camel_case_types
@@ -18,7 +19,7 @@ class homeTab extends StatelessWidget {
 
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: ()=> Navigator.pushNamed(context, RouteGenerator.profilescreen),
                 icon: const Icon(
                   Icons.account_circle,
                   size: 30, color: Colors.white,
@@ -85,13 +86,23 @@ class homeTab extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
+          showAllWidget(title: "New"),
+          shortStoriesWidget(storyTitle: ""),
+          SizedBox(
+            height: 15,
+          ),
           showAllWidget(title: "Trending"),
           shortStoriesWidget(storyTitle: ""),
           SizedBox(
             height: 15,
           ),
-          showAllWidget(title: "Politics"),
-          shortStoriesWidget(storyTitle: "")
+          showAllWidget(title: "Explore"),
+          shortStoriesWidget(storyTitle: ""),
+          SizedBox(
+            height: 15,
+          ),
+          showAllWidget(title: "Invest"),
+          shortStoriesWidget(storyTitle: ""),
         ]))
       ],
     );

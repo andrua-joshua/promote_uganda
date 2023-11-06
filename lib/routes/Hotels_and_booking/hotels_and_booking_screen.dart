@@ -11,12 +11,15 @@ class hotelsHomeScreen extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-      
+      backgroundColor: Colors.red,
+        automaticallyImplyLeading: false,
+
         title: const Text(
           "Hotels",
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            fontSize: 17
+            fontSize: 17,
+            color: Colors.white
           ),
           ),
           centerTitle: true,

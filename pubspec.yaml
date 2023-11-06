@@ -27,17 +27,17 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
-dependencies:
+dep/home/drillox/Downloads/fse21.pdf /home/drillox/Downloads/JavaFramework.pdf /home/drillox/Downloads/leonor-loureiro-midterm.pdf /home/drillox/Downloads/Linked_Blockchain_paper_Final.pdf /home/drillox/Downloads/Solidity-CheatSheet.pdf /home/drillox/Downloads/solidity-fr-readthedocs-io-fr-latest.pdf /home/drillox/Downloads/Web3-Guide.pdfendencies:
   flutter:
     sdk: flutter
 
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+dependencies:
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.3
   provider: ^6.0.5
   appinio_video_player: ^1.2.2
+  permission_handler: ^11.0.1
 
 dev_dependencies:
   flutter_test:
@@ -69,7 +69,13 @@ flutter:
      - assets/images/mountUg.jpg
      - assets/images/rivers.jpg
      - assets/images/landscape.jpg
-  #   - images/a_dot_ham.jpeg
+     - assets/images/jumia.jpeg
+     - assets/images/ads.gif
+     - assets/images/ads_v2.png
+     
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

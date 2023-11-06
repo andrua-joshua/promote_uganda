@@ -13,10 +13,12 @@ class travelAndExploreCatScreen extends StatelessWidget{
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 223, 223, 223),
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text(
           category,
           style: const TextStyle(
-            fontWeight: FontWeight.bold
+            fontWeight: FontWeight.bold,
+            color: Colors.white
           ),
           ),
         centerTitle: true,

@@ -14,10 +14,11 @@ class shoppingItemViewScreen extends StatelessWidget{
     return Scaffold(
       backgroundColor:const Color.fromARGB(255, 230, 229, 229),
       appBar: AppBar(
-        backgroundColor:const Color.fromARGB(255, 230, 229, 229),
+        
+        backgroundColor:  Colors.red,//const Color.fromARGB(255, 230, 229, 229),
         leading: IconButton(
           onPressed: () => Navigator.pop(context), 
-          icon: const Icon(Icons.arrow_back, color: Colors.black,)),
+          icon: const Icon(Icons.arrow_back, color: Colors.white,)),
       ),
 
       body: const SafeArea(
@@ -26,12 +27,17 @@ class shoppingItemViewScreen extends StatelessWidget{
               horizontal: 10,
               vertical: 5
             ),
-            child: Column(
+            child: SingleChildScrollView (
+              child:Column(
               children: [
                 itemImagesSliderWidget(),
-                Expanded(child: itemDetailsWidget())
+                itemDetailsWidget(),
+
+                SizedBox(height: 30,),
+                recentlyCheckedItemsWidget(),
+                SizedBox(height: 5,)
               ],
-            ),),
+            )),),
         ),
 
     );

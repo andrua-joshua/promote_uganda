@@ -80,7 +80,11 @@ class gallaryWidget extends StatelessWidget{
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        SizedBox(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
           title,
           style: const TextStyle(
             color: Color.fromARGB(255, 114, 39, 176),
@@ -88,6 +92,12 @@ class gallaryWidget extends StatelessWidget{
             fontWeight: FontWeight.bold
           ),
           ),
+
+          TextButton(
+            onPressed: (){}, child: const Text("View all"))
+            ],
+          ),
+        ),
         const Divider(thickness: 2, color: Color.fromARGB(255, 39, 2, 126), indent: 2, endIndent: 350,),
         
         SizedBox(

@@ -15,7 +15,7 @@ class topNavWidget extends StatelessWidget {
           Chip(
             label: Text("All"),
             labelStyle: TextStyle(color: Colors.white),
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.red,
           ),
           SizedBox(
             width: 5,
@@ -76,75 +76,90 @@ class unitItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=> Navigator.pushNamed(context, RouteGenerator.shopItemviewscreen),
-      child:SizedBox(
-      height: 200,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            constraints: const BoxConstraints.expand(height: 127),
-            margin: const EdgeInsets.symmetric(horizontal: 15),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: const Color.fromARGB(255, 214, 213, 213),
-                image: DecorationImage(
-                    fit: BoxFit.contain, image: AssetImage(imgUrl))),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: Text(
-              name,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: SizedBox(
-              child: Row(
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Price:",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
+        onTap: () =>
+            Navigator.pushNamed(context, RouteGenerator.shopItemviewscreen),
+        child: SizedBox(
+          height: 200,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                constraints: const BoxConstraints.expand(height: 150),
+                margin: const EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color.fromARGB(255, 214, 213, 213),
+                    image: DecorationImage(
+                        fit: BoxFit.contain, image: AssetImage(imgUrl))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: const Color.fromARGB(255, 238, 238, 238)),
+                      padding: const EdgeInsets.all(4),
+                      child: const Text(
+                        "-40%",
+                        style: TextStyle(color: Colors.orange),
+                      ),
                     ),
-                  ),
-                  Text(
-                    "\$$price",
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.green),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  TextButton(
-                      onPressed: () {},
-                      child: Center (
-                        child:Container(
-                        height: 25,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.orange),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 5, vertical: 5),
-                        child: const Text(
-                          "Buy",
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      )))
-                ],
+                    SizedBox(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          const Text(
+                            "Price: ",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "\$$price  ",
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.deepOrangeAccent,
+                                fontSize: 17),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(
+                  name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
+              ),
+            ],
           ),
-        ],
+        ));
+  }
+}
+
+
+//ignore:camel_case_types
+class adsWidget extends StatelessWidget{
+  const adsWidget({super.key});
+
+
+
+  @override
+  Widget build(BuildContext context){
+    return Container(
+      constraints: const BoxConstraints.expand(height: 50),
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage("assets/images/ads.gif") )
       ),
-    ));
+    );
   }
 }
