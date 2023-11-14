@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/bloc/user_authentication/signup_logic.dart';
 import 'package:promote_uganda/routes.dart';
 
 //ignore:camel_case_types
@@ -11,7 +12,7 @@ class signUpForm extends StatefulWidget {
 
 //ignore:camel_case_types
 class _signUpFormState extends State<signUpForm> {
-  final GlobalKey _key = GlobalKey<FormState>();
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
   late final TextEditingController _usernameController;
   late final TextEditingController _gmailController;
   late final TextEditingController _contactController;
@@ -68,6 +69,7 @@ class _signUpFormState extends State<signUpForm> {
             padding: const EdgeInsets.all(3),
             child: TextFormField(
               controller: _gmailController,
+              validator: signUpLogic.gmailValidate,
               decoration: const InputDecoration(
                   border: InputBorder.none, hintText: "Enter gmail"),
             )),
@@ -92,6 +94,7 @@ class _signUpFormState extends State<signUpForm> {
               controller: _passwordController,
               obscureText: true,
               obscuringCharacter: "*",
+              validator: signUpLogic.passwordValidate,
               decoration: const InputDecoration(
                   border: InputBorder.none, hintText: "Enter password"),
             )),
@@ -105,13 +108,16 @@ class _signUpFormState extends State<signUpForm> {
               controller: _confirmController,
               obscureText: true,
               obscuringCharacter: "*",
+              validator: signUpLogic.passwordConfirmValidate,
               decoration: const InputDecoration(
                   border: InputBorder.none, hintText: "Confirm password"),
             )),
 
             const SizedBox(height: 25,),
             TextButton(
-              onPressed: ()=>Navigator.pushNamed(context, RouteGenerator.homescreen), 
+              onPressed: ()=>signUpLogic.signUp(_key, 
+              context, _gmailController.text, 
+              _passwordController.text, _usernameController.text, _contactController.text), 
               child: Container(
                 constraints: const BoxConstraints.expand(
                   height: 40

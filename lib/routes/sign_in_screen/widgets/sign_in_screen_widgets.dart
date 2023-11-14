@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/bloc/user_authentication/login_logic.dart';
 import 'package:promote_uganda/routes.dart';
 
 //ignore:camel_case_types
@@ -11,7 +12,7 @@ class loginFormWidget extends StatefulWidget {
 
 //ignore:camel_case_types
 class _loginFormWidgetState extends State<loginFormWidget> {
-  late GlobalKey key = GlobalKey<FormState>();
+  late GlobalKey<FormState> key = GlobalKey<FormState>();
   late TextEditingController _usernameOrgmailController;
   late TextEditingController _passwordController;
 
@@ -45,6 +46,7 @@ class _loginFormWidgetState extends State<loginFormWidget> {
                 padding: const EdgeInsets.all(3),
                 child: TextFormField(
                   controller: _usernameOrgmailController,
+                  validator: loginLogic.emailValidate,
                   decoration: const InputDecoration(
                     border: InputBorder.none,
                     hintText: "Enter username or gmail"),
@@ -59,6 +61,7 @@ class _loginFormWidgetState extends State<loginFormWidget> {
                 padding: const EdgeInsets.all(3),
                 child: TextFormField(
                   controller: _passwordController,
+                  validator: loginLogic.passwordValidate,
                   decoration: const InputDecoration(border: InputBorder.none, hintText: "Enter password"),
                 )),
 
@@ -69,7 +72,8 @@ class _loginFormWidgetState extends State<loginFormWidget> {
             ),
 
             TextButton(
-              onPressed: ()=>Navigator.pushNamed(context, RouteGenerator.homescreen), 
+              onPressed: ()=>loginLogic.login(key, context, 
+              _usernameOrgmailController.text, _passwordController.text), 
               child: Container(
                 constraints: const BoxConstraints.expand(
                   height: 40
