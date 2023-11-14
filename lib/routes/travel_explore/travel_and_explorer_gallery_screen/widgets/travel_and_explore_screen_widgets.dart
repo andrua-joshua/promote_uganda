@@ -48,10 +48,11 @@ class gallerImagesWidget extends StatelessWidget {
 
       int index = 0;
 
-      List<Widget> rows = List.empty(growable: true);
+      List<Widget> rows = [];
 
-      while (index < itemsCount) {
-        List<String> imgs = List.empty(growable: true);
+       while (index < itemsCount) {
+      //while(false){
+        List<String> imgs = [];
         int sub = itemsCount - (index + 1);
         if (sub < count) {
           for (int i = 0; i < (sub); i++) {
@@ -65,8 +66,8 @@ class gallerImagesWidget extends StatelessWidget {
           }
         }
 
-        rows.add(simpleGalleryRowWidget(
-            count: count, height: height, width: extend, imgsUrl: imgs));
+        // rows.add(simpleGalleryRowWidget(
+        //     count: count, height: height, width: extend, imgsUrl: imgs));
       }
 
       return Column(
