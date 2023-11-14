@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "946021198705",
+    "project_id": "promoteuganda-f8261",
+    "storage_bucket": "promoteuganda-f8261.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946021198705:android:0f98b32cc2e9f67dc9e4d0",
+        "android_client_info": {
+          "package_name": "com.example.promote_uganda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946021198705-hc55c3d1kntbfptoqr1sid8e1cat6g50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf_9mCnhBEXSSSabXeADbNehoisBx9XQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946021198705-hc55c3d1kntbfptoqr1sid8e1cat6g50.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "946021198705-o1qaa6k8dkcgmns2o9pr3dmsu1p72201.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.promoteUganda.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -32,10 +32,10 @@ class galleryScreen extends StatelessWidget {
               SizedBox(height: 50,),
               gallerTopWidget(),
               SizedBox(height: 15,),
-              gallerImagesWidget(
-                extend: 150, 
-                height: 200, 
-                itemsCount: 3)
+              // gallerImagesWidget(
+              //   extend: 150, 
+              //   height: 200, 
+              //   itemsCount: 3)
 
             ],
           ),
