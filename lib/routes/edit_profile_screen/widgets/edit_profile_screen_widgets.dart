@@ -59,45 +59,144 @@ class editableProfileImage extends StatelessWidget{
 }
 
 
-
-// class simpleEditFormWidget extends StatefulWidget{
-//  const simpleEditFormWidget({super.key});
-
-
-//  @override
-
-// }
+//ignore:camel_case_types
+class simpleEditFormWidget extends StatefulWidget{
+ const simpleEditFormWidget({super.key});
 
 
-// class _simpleEditFormState extends State<simpleEditFormWidget>{
-//   final GlobalKey _key = GlobalKey<FormState>();
-//   late final TextEditingController _usernameController;
-//   late final TextEditingController _contactController;
-//   late final TextEditingController _passwordController;
+ @override
+ _simpleEditFormState createState() => _simpleEditFormState();
+
+}
+
+//ignore:camel_case_types
+class _simpleEditFormState extends State<simpleEditFormWidget>{
+  final GlobalKey _key = GlobalKey<FormState>();
+  late final TextEditingController _usernameController;
+  late final TextEditingController _contactController;
+  late final TextEditingController _passwordController;
 
 
-//   @override
-//   void initState(){
-//     _usernameController = TextEditingController();
-//     _contactController = TextEditingController();
-//     _passwordController = TextEditingController();
-//   }
+  @override
+  void initState(){
+    super.initState();
+    _usernameController = TextEditingController();
+    _contactController = TextEditingController();
+    _passwordController = TextEditingController();
+  }
 
 
-//   @override
-//   void dispose(){
-//     _usernameController.dispose();
-//     _contactController.dispose();
-//     _passwordController.dispose();
-//   }
+  @override
+  void dispose(){
+    _usernameController.dispose();
+    _contactController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
-//   @override
-//   Widget build(BuildContext context){
-//     return Form(
-//       key: _key,
-//       child: Column(children: [],),
-//     );
-//   }
+  @override
+  Widget build(BuildContext context){
+    return Form(
+      key: _key,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Edit username",
+            style: TextStyle(
+              color: Colors.grey,
+              fontWeight: FontWeight.w400,
+              fontSize: 15,
+            ),),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color.fromARGB(255, 230, 229, 229)
+            ),
+
+            padding: const EdgeInsets.all(3),
+
+            child: TextFormField(
+              controller: _usernameController,
+              decoration:const InputDecoration(
+                border: InputBorder.none,
+                hintText: "Edit username"
+              ),
+            ),
+          ),
+
+        const SizedBox(height: 10,),
+
+          const Text(
+            "Edit Contact",
+            style: TextStyle(
+              color: Colors.grey,
+              fontWeight: FontWeight.w400,
+              fontSize: 15,
+            ),),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color.fromARGB(255, 230, 229, 229)
+            ),
+
+            padding: const EdgeInsets.all(3),
+
+            child: TextFormField(
+              controller: _contactController,
+              keyboardType: TextInputType.number,
+              
+              decoration:const InputDecoration(
+                border: InputBorder.none,
+                hintText: "Edit contact"
+              ),
+            ),
+          ), 
+
+          // Container(
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(10),
+          //     color: const Color.fromARGB(255, 230, 229, 229)
+          //   ),
+
+          //   padding: const EdgeInsets.all(3),
+
+          //   child: TextFormField(
+          //     controller: _passwordController,
+          //     decoration:const InputDecoration(
+          //       border: InputBorder.none,
+          //       hintText: "change password"
+          //     ),
+          //   ),
+          // )
 
 
-// }
+          const SizedBox(height: 50,),
+
+          TextButton(
+            onPressed: (){}, 
+            child: Container(
+              constraints: const BoxConstraints.expand(
+                height: 35
+              ),
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(5)
+              ),
+
+              padding: const EdgeInsets.all(3),
+
+              child: const Center(child:Text(
+                "Save Changes",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16
+                ),)),
+            ))
+        ],),
+    );
+  }
+
+
+}

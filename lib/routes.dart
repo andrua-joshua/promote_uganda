@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/routes/Hotels_and_booking/hotel_rooms_screen/hotel_rooms_screen.dart';
 import 'package:promote_uganda/routes/Hotels_and_booking/hotels_booking_screen/hotels_booking_screen.dart';
 import 'package:promote_uganda/routes/edit_profile_screen/edit_profile_screen.dart';
 import 'package:promote_uganda/routes/home_screen/home_screen.dart';
@@ -11,6 +12,7 @@ import 'package:promote_uganda/routes/shopping/shopping_view_item_screen/shoppin
 import 'package:promote_uganda/routes/sign_in_screen/sign_in_screen.dart';
 import 'package:promote_uganda/routes/sign_up_screen/sign_up_screen.dart';
 import 'package:promote_uganda/routes/travel_explore/travel_and-explore_cat_screen/travel_and_explore_cat.dart';
+import 'package:promote_uganda/routes/travel_explore/travel_and_explorer_gallery_screen/travel_and_explore_gallery_screen.dart';
 import 'package:promote_uganda/routes/travel_explore/travel_explore_details_screen/travel_explore_details_screen.dart';
 
 class RouteGenerator {
@@ -26,6 +28,8 @@ class RouteGenerator {
   static const String signupscreen = "/signupscreen";
   static const String shoppingcartscreen = "/shoppingcartscreen";
   static const String editprofilescreen = "/editprofilescreen";
+  static const String hotelroomsscreen = "/hotelroomsscreen";
+  static const String galleryscreen = "/galleryscreen";
 
 
 
@@ -44,8 +48,8 @@ class RouteGenerator {
             builder: (context) => const shoppingHomeScreen());
       case exploreCatscreen:
         return MaterialPageRoute(builder: (context) {
-          String arg = settings.arguments as String;
-          return travelAndExploreCatScreen(
+          //String arg = settings.arguments as String;
+          return const travelAndExploreCatScreen(
             category: "Mountains",
           );
         });
@@ -76,6 +80,14 @@ class RouteGenerator {
       case editprofilescreen:
         return MaterialPageRoute(
             builder: (context) => const editProfileScreen());
+
+      case hotelroomsscreen:
+        return MaterialPageRoute(
+            builder: (context) => const hotelRoomsScreen());
+
+      case galleryscreen:
+        return MaterialPageRoute(
+            builder: (context) => const galleryScreen());
 
       default:
         return MaterialPageRoute(builder: (context) => const homeScreen());

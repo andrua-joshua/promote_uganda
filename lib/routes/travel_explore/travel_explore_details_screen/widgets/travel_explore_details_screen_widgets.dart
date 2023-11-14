@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/routes.dart';
 
 
 //ignore:camel_case_types
@@ -94,7 +95,7 @@ class gallaryWidget extends StatelessWidget{
           ),
 
           TextButton(
-            onPressed: (){}, child: const Text("View all"))
+            onPressed: ()=> Navigator.pushNamed(context, RouteGenerator.galleryscreen), child: const Text("View all"))
             ],
           ),
         ),

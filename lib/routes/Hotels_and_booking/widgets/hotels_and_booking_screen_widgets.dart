@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:promote_uganda/routes.dart';
 
+
 //ignore:camel_case_types
 class topSearchWidget extends StatelessWidget {
   const topSearchWidget({super.key});
@@ -47,6 +48,90 @@ class topSearchWidget extends StatelessWidget {
     });
   }
 }
+
+
+
+//ignore:camel_case_types
+class topSuggestionWidget extends StatelessWidget{
+  
+  const topSuggestionWidget({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return SizedBox(
+      height: 150,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: List.generate(
+            4, (index) => suggestionUnitWidget(
+              hotelName: "Jokas Hotel", imgUrl: "assets/images/gameparks.jpg", stars: index+1, )),
+        ),
+      ),
+    );
+  }
+}
+
+
+//ignore:camel_case_types
+class suggestionUnitWidget extends StatelessWidget{
+  final String hotelName;
+  final String imgUrl;
+  final int stars;
+  const suggestionUnitWidget({super.key, required this.hotelName, required this.imgUrl, required this.stars});
+
+  @override
+  Widget build(BuildContext context){
+    return GestureDetector(
+      onTap: ()=> Navigator.pushNamed(context, RouteGenerator.hotelbookingscreen),
+      child:Card(
+      
+      child: Column(
+        children: [
+          Container(
+            height: 100,
+            width: 100,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(imgUrl))
+            ),
+
+            margin: const EdgeInsets.only(bottom: 5),
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+
+                  ),
+
+                  padding: const EdgeInsets.all(5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: List.generate(stars, 
+                    (index) => const Padding(padding:EdgeInsets.symmetric(horizontal: 0.3), child: Icon(Icons.star, color: Colors.orange,size: 15,),)),
+                  ),
+                )
+              ],
+            ),
+          ),
+
+          Text(
+            hotelName,
+            style: const TextStyle(
+              fontSize: 15
+            ),)
+        ],
+      ),
+    ));
+  }
+}
+
+
+
+
 
 //ignore:camel_case_types
 class unitWidget extends StatelessWidget {
@@ -170,5 +255,38 @@ class unitWidget extends StatelessWidget {
         ],
       ),
     ));
+  }
+}
+
+
+//ignore:camel_case_types
+class filterWidget extends StatelessWidget{
+  const filterWidget({super.key});
+
+
+  @override
+  Widget build(BuildContext context){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children:[DropdownButton(
+      value:"filter1" ,
+      underline:const SizedBox(),
+      padding: const EdgeInsets.all(0),
+      iconSize: 15,
+      elevation: 0,
+      items: const [
+        DropdownMenuItem<String>(
+          value: "filter1",
+          child: Text("filter1")),
+
+        DropdownMenuItem<String>(
+          value: "filter2",
+          child: Text("filter3")),
+
+          DropdownMenuItem<String>(
+          value: "filter2",
+          child: Text("filter2")),
+      ], 
+      onChanged: (_){})]);
   }
 }

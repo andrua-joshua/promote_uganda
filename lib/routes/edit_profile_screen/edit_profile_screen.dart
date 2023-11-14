@@ -23,11 +23,16 @@ class editProfileScreen extends StatelessWidget{
 
       body: const SafeArea(
         child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20,),
-              Center(child:topEditWidget(imgUrl: "assets/images/city.jpg"))
+              SizedBox(height: 40,),
+              Center(child:topEditWidget(imgUrl: "assets/images/city.jpg")),
+
+              SizedBox(height: 40,),
+
+              simpleEditFormWidget()
             ],
           ),
         )),

@@ -22,7 +22,19 @@ class hotelsHomeScreen extends StatelessWidget{
             color: Colors.white
           ),
           ),
-          centerTitle: true,
+          //centerTitle: true,
+
+          actions: [
+
+            IconButton(
+              onPressed: (){}, 
+              icon:const Icon(Icons.search, color: Colors.white,)),
+
+              IconButton(
+              onPressed: (){}, 
+              icon:const Icon(Icons.book_outlined, color: Colors.white,))
+          ],
+
       ),
 
       body: const SafeArea(
@@ -30,10 +42,20 @@ class hotelsHomeScreen extends StatelessWidget{
           child: Padding(
             padding: EdgeInsets.all(10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //SizedBox(height: ,)
                 topSearchWidget(),
                 SizedBox(height: 10,),
+                Text(
+                  "Nearby Hotels",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15
+                  ),),
+                topSuggestionWidget(),
+                SizedBox(height: 15,),
+                filterWidget(),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 10),
                   child: unitWidget(
