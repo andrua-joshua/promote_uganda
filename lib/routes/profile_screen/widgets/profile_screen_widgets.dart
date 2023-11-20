@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/routes.dart';
 
 
 
@@ -53,7 +55,10 @@ class logoutBtnWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return TextButton(
-      onPressed: (){}, 
+      onPressed: (){
+        FirebaseAuth.instance.signOut();
+        Navigator.pushNamed(context, RouteGenerator.signinscreen);
+      }, 
       child: Container(
         constraints: const BoxConstraints.expand(height: 40),
         decoration: BoxDecoration(

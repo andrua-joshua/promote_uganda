@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:promote_uganda/routes.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: RouteGenerator.signinscreen,
+      initialRoute: FirebaseAuth.instance.currentUser!=null? RouteGenerator.homescreen: RouteGenerator.signinscreen,
       onGenerateRoute: RouteGenerator.generateRoute,
       //home: const promoteTvScreen(),
     );

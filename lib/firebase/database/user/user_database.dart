@@ -5,9 +5,6 @@ import 'package:promote_uganda/firebase/modules/user/user.dart';
 //ignore:camel_case_types
 class userDataManip {
 
-///
-///
-///
 
   static Future<userModel> getUser({required String userId}) async {
     final user =

@@ -44,6 +44,7 @@ class _signUpFormState extends State<signUpForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _key,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -60,6 +61,7 @@ class _signUpFormState extends State<signUpForm> {
             padding: const EdgeInsets.all(3),
             child: TextFormField(
               controller: _usernameController,
+              validator: signUpLogic.usernameValidate,
               decoration: const InputDecoration(
                   border: InputBorder.none, hintText: "Enter username"),
             )),
