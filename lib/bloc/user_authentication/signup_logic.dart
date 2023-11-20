@@ -82,6 +82,13 @@ class signUpLogic {
               // Navigator.pushNamed(
               //     context, RouteGenerator.emailVerificationscreen);
             }
+          } else{
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              duration: Duration(seconds: 3),
+                  content: Text(
+                "create account failed",
+                style: TextStyle(color: Colors.red),
+              )));
           }
         });
       } on FirebaseAuthException catch (e) {
