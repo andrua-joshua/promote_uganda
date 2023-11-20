@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/firebase/database/user/user_database.dart';
 import 'package:promote_uganda/routes.dart';
 import 'package:promote_uganda/routes/home_screen/home_tab/widgets/home_tab_widgets.dart';
 
@@ -12,10 +15,12 @@ class homeTab extends StatelessWidget {
       slivers: [
         SliverAppBar(
           //backgroundColor: const Color.fromARGB(255, 18, 116, 228),
-          title: const Text(
-            "Hello [User]",
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-          ),
+          title: StreamBuilder<DocumentSnapshot>(
+            stream: userDataManip.getUserStream(userId: FirebaseAuth.instance.currentUser?.uid??""), 
+            builder:(context, snapshot) => Text(
+            "Hello ${snapshot.data?.get("username") as String}",
+            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          ),),
 
           actions: [
             IconButton(

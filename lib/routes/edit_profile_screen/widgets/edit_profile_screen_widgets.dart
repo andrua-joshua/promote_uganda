@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/firebase/database/user/user_database.dart';
 
 
 
@@ -71,7 +74,7 @@ class simpleEditFormWidget extends StatefulWidget{
 
 //ignore:camel_case_types
 class _simpleEditFormState extends State<simpleEditFormWidget>{
-  final GlobalKey _key = GlobalKey<FormState>();
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
   late final TextEditingController _usernameController;
   late final TextEditingController _contactController;
   late final TextEditingController _passwordController;
@@ -174,7 +177,57 @@ class _simpleEditFormState extends State<simpleEditFormWidget>{
           const SizedBox(height: 50,),
 
           TextButton(
-            onPressed: (){}, 
+            onPressed: ()async{
+            
+              if(_key.currentState?.validate() ?? false){
+                try{
+                  
+                  showDialog(
+                    context: context, 
+                    barrierDismissible: false,
+                    builder: (context){
+                      return AlertDialog(
+                        content: FutureBuilder(
+                          future: updateUserData(), 
+                          builder:(context, snapshot) {
+                            if(snapshot.hasData){
+                              return Column(
+                                children: [
+                                  const Text("Data saved successfully", style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: Colors.green
+                                  ),),
+                                  const SizedBox(height: 10,),
+
+                                  TextButton(
+                                    onPressed: ()=>Navigator.pop(context), 
+                                    child:const Text("Okay", style: TextStyle(
+                                      fontWeight: FontWeight.bold
+                                    ),))
+                                ],
+                              );                              
+                            }
+                            if(snapshot.hasError){
+                              return const Text("Error saving data", style: TextStyle(
+                                color: Colors.red
+                              ),);
+                            }
+
+
+                            return const CircularProgressIndicator();
+                          },),
+                      );
+                    });
+
+
+                }catch(e){
+                  //
+                }
+              }
+
+
+            }, 
             child: Container(
               constraints: const BoxConstraints.expand(
                 height: 35
@@ -196,6 +249,35 @@ class _simpleEditFormState extends State<simpleEditFormWidget>{
             ))
         ],),
     );
+  }
+
+
+  Future<void> updateUserData()async{
+    final currentUser = await userDataManip.getUser(userId: FirebaseAuth.instance.currentUser?.uid??"");
+    
+    currentUser.contact = _contactController.text;
+    currentUser.username = _usernameController.text;
+
+    await userDataManip.updateUser(currentUser);
+
+
+  }
+
+
+  String? usernameValidate(String? txt){
+    if(txt?.isEmpty??true){
+      return "Enter a valid username";
+    }
+    return null;
+  }
+
+
+  String? contactValidate(String? txt){
+    if(txt?.isEmpty??true && txt?.length!=10){
+      return "Enter valid Contact";
+    }
+
+    return null;
   }
 
 
