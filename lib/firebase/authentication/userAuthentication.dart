@@ -25,7 +25,7 @@ class EmailUser implements userRepository<UserCredential>{
   Future<UserCredential> register({required userModel user}) async{
     final auth = await FirebaseAuth.instance
     .createUserWithEmailAndPassword(email: email, password: password);
-    
+    user.userId = auth.user?.uid??"";
     await userDataManip.saveUser(user);
     return auth;
   }

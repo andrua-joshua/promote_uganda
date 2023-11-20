@@ -4,31 +4,27 @@ import 'package:flutter/material.dart';
 import 'package:promote_uganda/firebase/authentication/userAuthentication.dart';
 import 'package:promote_uganda/routes.dart';
 
-
-
 //ignore:camel_case_types
-class loginLogic{
+class loginLogic {
+  static String? passwordValidate(String? txt) {
+    int length = txt?.length ?? 0;
 
-  static String? passwordValidate(String? txt){
-    int length =txt?.length??0;
-
-    if(length<8){
+    if (length < 8) {
       return "password should be atleast 8 characters long";
     }
     return null;
   }
 
-
-  static String? emailValidate(String? txt){
-    if(txt?.isEmpty ?? true){
+  static String? emailValidate(String? txt) {
+    if (txt?.isEmpty ?? true) {
       return "Enter your Email please";
-    }else{
+    } else {
       String suffix = "@gmail.com";
 
-      int lng = txt?.length??0;
-      String sub = txt?.substring((lng>10)?(lng-suffix.length):0)??"";
+      int lng = txt?.length ?? 0;
+      String sub = txt?.substring((lng > 10) ? (lng - suffix.length) : 0) ?? "";
 
-      if(sub!=suffix){
+      if (sub != suffix) {
         return "please enter a valid gmail";
       }
     }
@@ -49,13 +45,12 @@ class loginLogic{
           context: context,
           builder: (context) {
             return AlertDialog(
-              backgroundColor: Color.fromARGB(255, 17, 17, 17),
+              backgroundColor: const Color.fromARGB(255, 17, 17, 17),
               content: SizedBox(
                   height: 45,
                   child: Center(
                     child: FutureBuilder(future: user.then((value) async {
                       if (value.user?.emailVerified ?? false) {
-                        
                         // ignore: use_build_context_synchronously
                         Navigator.pop(context);
                         // ignore: use_build_context_synchronously
@@ -65,6 +60,16 @@ class loginLogic{
                         // await value.user?.sendEmailVerification().then(
                         //     (value) => Navigator.pushNamed(context,
                         //         RouteGenerator.emailVerificationscreen));
+
+                        await value.user?.sendEmailVerification();
+                        
+                        // ignore: use_build_context_synchronously
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                                content: Text(
+                          "Check your Email to verify account",
+                          style: TextStyle(color: Colors.purple),
+                        )));
                       }
                     }), builder: (context, snap) {
                       if (snap.hasError) {
@@ -72,7 +77,10 @@ class loginLogic{
                             FirebaseAuth.instance.currentUser == null) {
                           return Text(
                             "Error: ${(snap.error as FirebaseAuthException).code.replaceAll('-', " ")}",
-                            style: const TextStyle(fontSize: 20,color: Colors.white, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           );
                         }
                       }
@@ -98,7 +106,4 @@ class loginLogic{
   }
 
 /////-----------
-
-
 }
-

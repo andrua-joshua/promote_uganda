@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:promote_uganda/firebase/authentication/userAuthentication.dart';
@@ -73,6 +72,7 @@ class signUpLogic {
               // ignore: use_build_context_synchronously
               Navigator.pushNamed(context, RouteGenerator.homescreen);
             } else {
+              await value.user?.sendEmailVerification();
               // ignore: use_build_context_synchronously
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   content: Text(

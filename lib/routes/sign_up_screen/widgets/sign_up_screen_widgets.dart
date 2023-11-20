@@ -7,6 +7,7 @@ class signUpForm extends StatefulWidget {
   const signUpForm({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _signUpFormState createState() => _signUpFormState();
 }
 
@@ -21,6 +22,7 @@ class _signUpFormState extends State<signUpForm> {
 
   @override
   void initState() {
+    super.initState();
     _usernameController = TextEditingController();
     _gmailController = TextEditingController();
     _confirmController = TextEditingController();
