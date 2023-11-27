@@ -26,7 +26,7 @@ class userDataManip {
   }
 
   static Future<void> saveUser(userModel user) async {
-    var usersStore = FirebaseFirestore.instance.collection("users");
+    final usersStore = FirebaseFirestore.instance.collection("users");
 
     await usersStore.doc(user.userId).set({
       "username": user.username,
@@ -38,10 +38,10 @@ class userDataManip {
   }
 
   static Future<void> updateUser(userModel user) async {
-    var usersStore = FirebaseFirestore.instance.collection("users");
+    final usersStore = FirebaseFirestore.instance.collection("users");
 
     await FirebaseFirestore.instance.runTransaction((transaction) async {
-      var userReference = usersStore.doc(user.userId);
+      final userReference = usersStore.doc(user.userId);
 
       transaction.update(userReference, {
         "username": user.username,
