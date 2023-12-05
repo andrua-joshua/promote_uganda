@@ -17,6 +17,7 @@ abstract class userModel{
   void setUsername({required String username});
   void setContact({required String contact});
   void setProfilePic({required String profilePic});
+  Map<String, dynamic> getUserAsJson();
 
 
 }

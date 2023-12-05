@@ -54,6 +54,19 @@ class casualUserModel extends userModel {
   void setUsername({required String username}) {
     super.username = username;
   }
+
+  @override
+  Map<String, dynamic> getUserAsJson(){
+    return {
+      "userId": userId,
+      "username": username,
+      "email" : gmail,
+      "contact": contact,
+      "profilePic": profilePic,
+      "accountType": accountType as String,
+      
+    };
+  }
   
   // @override
   // accountType getAccountType() {

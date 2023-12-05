@@ -40,24 +40,29 @@ class promoteTvScreen extends StatelessWidget {
                     "away | Delivery and more.\n"
                     "You can now order using Jumia food "
                     "from your favourite restaurants",
-                imgUrl: "assets/images/ads_v2.png",
+                imgUrl: "https://ug.jumia.is/cms/UG_WK_48_Xmas_Sale_TBs_400x320-25.png",
                 rating: "4.4"),
             SizedBox(
               height: 25,
             ),
             fullVideoComponentWidget(
-                videoUrl: "https://youtu.be/bPv5pb7AcYs?si=ImaH58T9jC3MskK_"),
+                videoUrl: "https://hanim.netlify.app/assets/videos/firstvideo.mp4"),
             SizedBox(
               height: 10,
             ),
             fullVideoComponentWidget(
-                videoUrl: "https://youtu.be/bPv5pb7AcYs?si=ImaH58T9jC3MskK_"),
+                videoUrl: "https://firebasestorage.googleapis.com/v0/b/promoteuganda-f8261.appspot.com/o/IPFS%20File%20Uploads%20With%20Ethereum%20Smart%20Contracts%20%C2%B7%20%231%20IPFS%20Image%20Storage%20DApp%20Tutorial.mp4?alt=media&token=7b434ce1-4efb-4bcf-a738-98c5ec5357b7"),
             SizedBox(
               height: 10,
             ),
             fullVideoComponentWidget(
-                videoUrl: "https://youtu.be/bPv5pb7AcYs?si=ImaH58T9jC3MskK_"),
+                videoUrl: "https://firebasestorage.googleapis.com/v0/b/promoteuganda-f8261.appspot.com/o/Promote%20Uganda-%20Attracting%20Youth%20to%20Agriculture-%20NBS%20Breakfast%20Meeting.mp4?alt=media&token=f43e682f-b653-42e7-9752-f74f0e6b8dd3"),
                 SizedBox(height: 30,),
+            SizedBox(
+              height: 10,
+            ),
+            fullVideoComponentWidget(
+              videoUrl: "https://firebasestorage.googleapis.com/v0/b/promoteuganda-f8261.appspot.com/o/They%20made%20%241M%20off%20a%20meme%20coin%20-%20Steal%20their%20strategy.mp4?alt=media&token=144ca5a3-99b4-4c6e-9066-68b1e5f4e91c"),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               child: Column(

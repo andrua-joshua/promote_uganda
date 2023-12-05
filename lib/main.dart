@@ -2,10 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:promote_uganda/routes.dart';
-void main() async{
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp();
+  //FirebaseAppCheck.getInstance();
   runApp(const MyApp());
 }
 
@@ -22,7 +24,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: FirebaseAuth.instance.currentUser!=null? RouteGenerator.homescreen: RouteGenerator.signinscreen,
+      initialRoute: FirebaseAuth.instance.currentUser != null
+          ? RouteGenerator.homescreen
+          : RouteGenerator.signinscreen,
       onGenerateRoute: RouteGenerator.generateRoute,
       //home: const promoteTvScreen(),
     );

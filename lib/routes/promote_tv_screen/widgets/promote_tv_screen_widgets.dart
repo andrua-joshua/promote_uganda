@@ -68,8 +68,8 @@ class adsWidget extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.grey,
             image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(imgUrl))
+              fit: BoxFit.fill,
+              image: NetworkImage(imgUrl))
           ),
         ),
         const SizedBox(
@@ -165,6 +165,11 @@ class _videoWidgetState extends State<videoWidget> {
     return FutureBuilder(
       future: videoPlayerController.initialize(),
       builder: (context, snapshot) {
+        if(snapshot.connectionState == ConnectionState.waiting){
+          return Container(
+            color: const Color.fromARGB(255, 228, 227, 227), 
+            constraints: const BoxConstraints.expand(height: 200),);
+        }
         if (snapshot.hasData) {
           return CustomVideoPlayer(
               customVideoPlayerController: customVideoPlayerController);
@@ -178,9 +183,12 @@ class _videoWidgetState extends State<videoWidget> {
           ));
         }
 
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
+        return CustomVideoPlayer(
+              customVideoPlayerController: customVideoPlayerController);
+
+        // return const Center(
+        //   child: CircularProgressIndicator(),
+        // );
       },
     );
   }
@@ -238,7 +246,7 @@ class fullVideoComponentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 200, child: videoWidget(videoUrl: videoUrl)),
+        SizedBox( child: videoWidget(videoUrl: videoUrl)),
         const SizedBox(
           height: 10,
         ),
