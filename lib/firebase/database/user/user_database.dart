@@ -29,8 +29,8 @@ class userDataManip {
     debugPrint(":::> Registering userId: " + user.userId);
     
 
-    await usersStore.add(user.getUserAsJson());
-
+    // await usersStore.add(user.getUserAsJson());
+    await usersStore.doc(user.userId).set(user.getUserAsJson());
     debugPrint(":::::>> user added to firebase: " + user.userId);
   }
 

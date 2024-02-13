@@ -1,24 +1,34 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/firebase/database/user/shoppingItems.dart';
 
 //ignore:camel_case_types
 class itemImagesSliderWidget extends StatelessWidget {
-  const itemImagesSliderWidget({super.key});
+  final List<dynamic> images;
+  const itemImagesSliderWidget({super.key, required this.images});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints.expand(height: 300),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-              fit: BoxFit.contain,
-              image: AssetImage("assets/images/shoe.png"))),
+              fit: BoxFit.cover,
+              image: NetworkImage(images[0].toString()))),
     );
   }
 }
 
 //ignore:camel_case_types
 class itemDetailsWidget extends StatelessWidget {
-  const itemDetailsWidget({super.key});
+  final String itemName;
+  final String itemDescription;
+  final String itemPrice;
+  const itemDetailsWidget({
+    required this.itemDescription,
+    required this.itemName,
+    required this.itemPrice,
+    super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +36,11 @@ class itemDetailsWidget extends StatelessWidget {
       
       decoration: const BoxDecoration(color: Colors.white),
       padding: const EdgeInsets.all(10),
-        child: const infoWidget(
-          itemName: "Sneakers Air",
-          description: "A new Flutter project"
-              "## Getting Started"
-              "This project is a starting point for a Flutter application."
-              "A few resources to get you started if this is your first Flutter project:"
-              "- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)"
-              "- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)"
-              "For help getting started with Flutter development, view the"
-              "[online documentation](https://docs.flutter.dev/), which offers tutorials,"
-              "samples, guidance on mobile development, and a full API reference.",
+        child: infoWidget(
+          itemName: itemName,
+          itemPrice: itemPrice,
+          description: itemDescription,
+
         ),
       
     );
@@ -46,9 +50,10 @@ class itemDetailsWidget extends StatelessWidget {
 //ignore:camel_case_types
 class infoWidget extends StatelessWidget {
   final String itemName;
+  final String itemPrice;
   final String description;
   const infoWidget(
-      {required this.itemName, required this.description, super.key});
+      {required this.itemName, required this.description, super.key, required this.itemPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -136,9 +141,9 @@ class infoWidget extends StatelessWidget {
         const SizedBox(
           height: 40,
         ),
-        const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: itemBottomInfoWidget(price: "435"))
+       Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: itemBottomInfoWidget(price: itemPrice))
       ],
     );
   }
@@ -260,19 +265,33 @@ class recentlyCheckedItemsWidget extends StatelessWidget{
             fontSize: 17
             ),),
           const SizedBox(height: 7,),
-          SingleChildScrollView(
+          StreamBuilder<QuerySnapshot>(
+            stream: shoppingItemDataManip.getAllItemsSnapshot(), 
+            builder:(context, snapshot) {
+              if(snapshot.hasError){
+                return const Center(child: Text("check your network!"),);
+              }
+              if(snapshot.hasData){
+                return SingleChildScrollView(
         scrollDirection: Axis.horizontal,
 
         child: Row(
           children: 
-          List.generate(8, (index)
+          List.generate(
+            snapshot.data!.size, 
+            (index)
            => unitRecentItemWidget(
-            imgUrl: "assets/images/shoe.png", 
-            productName: "sneaker", 
-            productPrice: 23, 
-            discount: 4*index)),
+            imgUrl: snapshot.data!.docs[index].get("itemImages")[0].toString(),
+            productName: snapshot.data!.docs[index].get("itemName").toString(), 
+            productPrice: snapshot.data!.docs[index].get("itemPrice"), 
+            discount: snapshot.data!.docs[index].get("itemDiscount"))),
         ),
-      ),
+      );
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },),
         ],
       )
     );
@@ -312,7 +331,7 @@ class unitRecentItemWidget extends StatelessWidget{
             image: DecorationImage(
               fit: BoxFit.cover,
               filterQuality: FilterQuality.high,
-              image: AssetImage(imgUrl))
+              image: NetworkImage(imgUrl))
           ),
 
           padding: const EdgeInsets.all(5),

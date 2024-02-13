@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:promote_uganda/firebase/database/user/shoppingItems.dart';
 import 'package:promote_uganda/routes.dart';
 
 ///for the top navigations throuh the items
@@ -45,18 +47,33 @@ class itemsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.extent(
+    return StreamBuilder<QuerySnapshot>(
+      stream: shoppingItemDataManip.getAllItemsSnapshot(), 
+      builder:(context, snapshot) {
+        
+        if(snapshot.hasData){
+          return GridView.extent(
       maxCrossAxisExtent: 260,
       //cacheExtent: 150,
       mainAxisSpacing: 20,
       crossAxisSpacing: 5,
       children: List.generate(
-          13,
-          (index) => const unitItemWidget(
-              name: "Sneakers air",
-              price: "633",
-              imgUrl: "assets/images/shoe.png")),
+          snapshot.data!.size,
+          (index) => unitItemWidget(
+              itemId: snapshot.data!.docs[index].id,
+              discount: snapshot.data!.docs[index].get("itemDiscount"),
+              name: snapshot.data!.docs[index].get("itemName"),
+              price: snapshot.data!.docs[index].get("itemPrice").toString(),
+              imgUrl: snapshot.data!.docs[index].get("itemImages")[0].toString())),
     );
+        }
+
+        if(snapshot.hasError){
+          return const Center(child: Text("Error: Check ur network"),);
+        }
+
+        return const CircularProgressIndicator();
+      },);
   }
 }
 
@@ -65,19 +82,26 @@ class itemsWidget extends StatelessWidget {
 class unitItemWidget extends StatelessWidget {
   final String name;
   final String price;
+  final double discount;
   final String imgUrl;
+  final String itemId;
   const unitItemWidget({
     super.key,
     required this.name,
+    required this.discount,
     required this.price,
     required this.imgUrl,
+    required this.itemId
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () =>
-            Navigator.pushNamed(context, RouteGenerator.shopItemviewscreen),
+            Navigator.pushNamed(
+              context, 
+              RouteGenerator.shopItemviewscreen, 
+              arguments: itemId),
         child: SizedBox(
           height: 200,
           child: Column(
@@ -90,7 +114,8 @@ class unitItemWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     color: const Color.fromARGB(255, 214, 213, 213),
                     image: DecorationImage(
-                        fit: BoxFit.contain, image: AssetImage(imgUrl))),
+                        fit: BoxFit.cover, 
+                        image: NetworkImage(imgUrl))),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -100,9 +125,9 @@ class unitItemWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(5),
                           color: const Color.fromARGB(255, 238, 238, 238)),
                       padding: const EdgeInsets.all(4),
-                      child: const Text(
-                        "-40%",
-                        style: TextStyle(color: Colors.orange),
+                      child: Text(
+                        "${discount*100}%",
+                        style: const TextStyle(color: Colors.orange),
                       ),
                     ),
                     SizedBox(

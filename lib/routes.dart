@@ -41,8 +41,9 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (context) => const hotelsBookingScreen());
       case shopItemviewscreen:
+        String itemId = settings.arguments as String;
         return MaterialPageRoute(
-            builder: (context) => const shoppingItemViewScreen());
+            builder: (context) => shoppingItemViewScreen(itemId: itemId));
       case shophomescreen:
         return MaterialPageRoute(
             builder: (context) => const shoppingHomeScreen());

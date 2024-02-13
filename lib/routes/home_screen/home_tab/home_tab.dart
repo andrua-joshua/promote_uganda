@@ -17,10 +17,12 @@ class homeTab extends StatelessWidget {
           //backgroundColor: const Color.fromARGB(255, 18, 116, 228),
           title: StreamBuilder<DocumentSnapshot>(
             stream: userDataManip.getUserStream(userId: FirebaseAuth.instance.currentUser?.uid??""), 
-            builder:(context, snapshot) => Text(
+            builder:(context, snapshot) {
+                debugPrint(":::::::Username::>>> ${FirebaseAuth.instance.currentUser?.uid}");
+              return Text(
             "Hello ${snapshot.data?.get("username") as String}",
             style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-          ),),
+          );},),
 
           actions: [
             IconButton(

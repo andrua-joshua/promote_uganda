@@ -56,14 +56,14 @@ class casualUserModel extends userModel {
   }
 
   @override
-  Map<String, dynamic> getUserAsJson(){
+  Map<String, String> getUserAsJson(){
     return {
       "userId": userId,
       "username": username,
       "email" : gmail,
       "contact": contact,
       "profilePic": profilePic,
-      "accountType": accountType as String,
+      "accountType": "Casual",
       
     };
   }
